@@ -1,0 +1,9 @@
+/* reset only */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #f8fafc;
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+}
+#app { width: 100%; }

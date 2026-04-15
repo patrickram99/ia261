@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm create:*)"
+      "Bash(npm create:*)",
+      "Bash(npx --yes create-vite . --template svelte)",
+      "Bash(npx --yes create-vite temp-project --template svelte)",
+      "Bash(cp -r temp-project/* temp-project/.* .)",
+      "Bash(rm -rf temp-project)",
+      "Bash(npm install:*)",
+      "mcp__Claude_Preview__preview_start"
     ]
   }
 }
