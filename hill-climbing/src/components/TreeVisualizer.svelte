@@ -3,10 +3,10 @@
   let { tree = [], path = [], formatState = String } = $props();
 
   /* ── layout constants ── */
-  const NW = 76;       // node width
-  const NH = 40;       // node height
-  const GAP_X = 8;     // horizontal gap between siblings
-  const GAP_Y = 64;    // vertical gap between levels
+  const NW = 64;       // node width
+  const NH = 38;       // node height
+  const GAP_X = 6;     // horizontal gap between siblings
+  const GAP_Y = 56;    // vertical gap between levels
   const PAD = 20;      // canvas padding
 
   /* ── compute layout ── */
@@ -80,12 +80,12 @@
 </script>
 
 {#if layout.nodes.length}
+  <h3 class="tree-title">Arbol de busqueda</h3>
   <div class="tree-wrap">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 {layout.width} {layout.height}"
-      style="width:100%; height:auto; min-height:200px;"
-      preserveAspectRatio="xMidYMin meet"
+      style="min-width:{layout.width}px; height:{layout.height}px;"
     >
       <defs>
         <linearGradient id="pathGrad" x1="0" y1="0" x2="0" y2="1">
@@ -120,11 +120,22 @@
 {/if}
 
 <style>
+  .tree-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
   .tree-wrap {
     overflow-x: auto;
-    padding: 16px 0;
+    padding: 12px 0;
+    border: 1px solid #f3f4f6;
+    border-radius: 12px;
+    background: #fafbfc;
   }
-  svg { display: block; }
+  svg { display: block; margin: 0 auto; }
 
   .edge {
     stroke: #e5e7eb;
