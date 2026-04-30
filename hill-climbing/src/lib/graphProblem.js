@@ -1,10 +1,8 @@
-/**
- * Graph / TSP-like problem.
- * Given a cost matrix, find the route (permutation) with minimum total cost.
- * Neighbors: all possible swaps of two positions.
- */
+// Problema tipo grafo / TSP.
+// Busca la ruta con menor costo total.
+// Los vecinos son intercambios de dos posiciones.
 
-/** Default 5-node cost matrix (symmetric) */
+// Matriz base de 5 nodos.
 export const DEFAULT_GRAPH = {
   labels: ['A', 'B', 'C', 'D', 'E'],
   costs: [
@@ -16,17 +14,17 @@ export const DEFAULT_GRAPH = {
   ],
 };
 
-/** Total route cost (closed loop) */
+// Costo total de la ruta cerrada.
 export function routeCost(route, costs) {
   let total = 0;
   for (let i = 0; i < route.length - 1; i++) {
     total += costs[route[i]][route[i + 1]];
   }
-  total += costs[route[route.length - 1]][route[0]]; // return
+  total += costs[route[route.length - 1]][route[0]]; // regreso
   return total;
 }
 
-/** All swap-2 neighbors */
+// Todos los vecinos por intercambio.
 export function swapNeighbors(route) {
   const result = [];
   for (let i = 0; i < route.length - 1; i++) {
@@ -39,12 +37,16 @@ export function swapNeighbors(route) {
   return result;
 }
 
-/** Build a problem definition for the generic engine */
+// Construye el problema para el motor genérico.
 export function makeGraphProblem(graph = DEFAULT_GRAPH, startRoute = null) {
   const initial = startRoute || graph.labels.map((_, i) => i);
+  function cost(route) {
+    return routeCost(route, graph.costs);
+  }
+
   return {
     initial,
-    cost: (route) => routeCost(route, graph.costs),
+    cost,
     neighbors: swapNeighbors,
     minimize: true,
   };

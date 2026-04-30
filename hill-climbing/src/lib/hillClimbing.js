@@ -1,16 +1,20 @@
-/**
- * Steepest-Ascent/Descent Hill Climbing
- *
- * Generic engine — receives a problem definition object:
- *   { initial, cost(state), neighbors(state), minimize }
- *
- * Returns the full search tree and the path chosen.
- */
+// @ts-nocheck
+// Motor genérico de hill climbing por ascenso/descenso más pronunciado.
 export function hillClimbing({ initial, cost, neighbors, minimize = true }) {
-  const better = minimize ? (a, b) => a < b : (a, b) => a > b;
+  // Comparación para modo de minimización.
+  function betterForMin(a, b) {
+    return a < b;
+  }
+
+  // Comparación para modo de maximización.
+  function betterForMax(a, b) {
+    return a > b;
+  }
+
+  const better = minimize ? betterForMin : betterForMax;
 
   const rootCost = cost(initial);
-  const tree = [];          // every iteration's expansion
+  const tree = [];          // expansión de cada iteración
   const path = [{ state: initial, cost: rootCost }];
 
   let current = initial;
@@ -18,9 +22,12 @@ export function hillClimbing({ initial, cost, neighbors, minimize = true }) {
 
   while (true) {
     const nbrs = neighbors(current);
-    const evaluated = nbrs.map(s => ({ state: s, cost: cost(s) }));
+    const evaluated = [];
+    for (const s of nbrs) {
+      evaluated.push({ state: s, cost: cost(s) });
+    }
 
-    // find the steepest neighbor
+    // Buscar el vecino más prometedor.
     let best = null;
     for (const n of evaluated) {
       if (!best || better(n.cost, best.cost)) best = n;
@@ -32,7 +39,7 @@ export function hillClimbing({ initial, cost, neighbors, minimize = true }) {
       chosen: best,
     });
 
-    // stop at local optimum
+    // Detenerse en el óptimo local.
     if (!best || !better(best.cost, currentCost)) break;
 
     current = best.state;
