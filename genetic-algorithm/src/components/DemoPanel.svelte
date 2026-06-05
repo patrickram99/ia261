@@ -41,7 +41,21 @@
     img.src = '/dino.ico';
 
     drawIdle();
+    loadDefaultGenome();
   });
+
+  async function loadDefaultGenome() {
+    try {
+      const res = await fetch('/dino-genome-gen1.json');
+      if (!res.ok) return;
+      const json = await res.json();
+      genome = deserialize(json);
+      errorMsg = '';
+      reset();
+    } catch (err) {
+      // Si no esta disponible, queda en idle esperando upload manual.
+    }
+  }
 
   onDestroy(() => {
     if (rafId) cancelAnimationFrame(rafId);
