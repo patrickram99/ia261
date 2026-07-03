@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clustering &middot; Mall Customer Segmentation</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='plotly.min.js') }}"></script>
+</head>
+<body>
+  <header>
+    <h1>Segmentacion de clientes &mdash; Clustering no supervisado</h1>
+    <p class="subtitle">
+      Dataset <strong>Mall Customer Segmentation</strong> (Kaggle, 200 clientes) &middot;
+      K-Means &middot; Jerarquico &middot; DBSCAN
+    </p>
+  </header>
+
+  <main>
+    <!-- ================= PANEL DE CONTROL ================= -->
+    <section class="controls">
+      <div class="algo-tabs">
+        <button class="tab active" data-algo="kmeans">K-Means</button>
+        <button class="tab" data-algo="hierarchical">Jerarquico</button>
+        <button class="tab" data-algo="dbscan">DBSCAN</button>
+      </div>
+
+      <!-- Parametros K-Means -->
+      <div class="params" id="params-kmeans">
+        <label>Numero de clusters (k): <b id="k-val">5</b>
+          <input type="range" id="k-slider" min="2" max="10" value="5">
+        </label>
+        <label>Implementacion:
+          <select id="impl-select">
+            <option value="sklearn">scikit-learn</option>
+            <option value="scratch">Desde cero (numpy)</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- Parametros Jerarquico -->
+      <div class="params hidden" id="params-hierarchical">
+        <label>Numero de clusters (corte): <b id="hk-val">5</b>
+          <input type="range" id="hk-slider" min="2" max="10" value="5">
+        </label>
+        <label>Enlace (linkage):
+          <select id="linkage-select">
+            <option value="ward">Ward</option>
+            <option value="complete">Complete</option>
+            <option value="average">Average</option>
+            <option value="single">Single</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- Parametros DBSCAN -->
+      <div class="params hidden" id="params-dbscan">
+        <label>eps (radio): <b id="eps-val">0.40</b>
+          <input type="range" id="eps-slider" min="0.1" max="1.5" step="0.05" value="0.4">
+        </label>
+        <label>min_samples: <b id="ms-val">5</b>
+          <input type="range" id="ms-slider" min="2" max="15" value="5">
+        </label>
+      </div>
+    </section>
+
+    <!-- ================= METRICAS ================= -->
+    <section class="metrics" id="metrics"></section>
+
+    <!-- ================= GRAFICAS PRINCIPALES ================= -->
+    <section class="charts">
+      <div class="card wide">
+        <h2>Clusters</h2>
+        <div id="scatter" class="plot"></div>
+      </div>
+      <div class="card">
+        <h2 id="aux-title">Grafica de apoyo</h2>
+        <div id="aux" class="plot"></div>
+        <p class="hint" id="aux-hint"></p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Silueta por punto</h2>
+      <div id="silhouette" class="plot"></div>
+      <p class="hint">
+        Cada barra es el coeficiente de silueta de un cliente (agrupados por cluster).
+        Valores altos y positivos indican puntos bien asignados; valores negativos,
+        puntos que quiza pertenecen a otro grupo.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Proyecto de clustering &middot; IA261 &middot; datos originales de Kaggle
+      (<em>Mall Customer Segmentation Data</em>). Backend Flask + scikit-learn,
+      visualizacion con Plotly.
+    </p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
