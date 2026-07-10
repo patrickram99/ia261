@@ -1,0 +1,4 @@
+configuracion,n_preguntas,tasa_exito_%,pasos_prom,llamadas_prom,errores_herramienta,errores_api,tiempo_prom_s
+detallado,8,100.0,2.0,1.0,0,0,2.04
+sin-formato,8,100.0,2.0,1.0,0,0,5.87
+minimo,8,100.0,2.12,1.12,0,0,6.56

@@ -1,0 +1,4 @@
+configuracion,n_preguntas,tasa_exito_%,pasos_prom,llamadas_prom,errores_herramienta,errores_api,tiempo_prom_s
+flash-lite,31,90.3,2.03,1.06,0,1,4.14
+flash-preview (no disponible: 429 cuota diaria),31,0.0,0.0,0.0,0,31,0.0
+3.5-flash (no disponible: 503 alta demanda),31,0.0,0.0,0.0,0,31,0.0
