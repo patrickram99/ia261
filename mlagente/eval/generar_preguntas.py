@@ -97,8 +97,11 @@ def main():
         num(f"¿Cuál fue la magnitud máxima en Arequipa durante {ultimo_anio_completo}?",
             df.loc[(df["departamento"] == "Arequipa")
                    & (df["anio"] == ultimo_anio_completo), "magnitud"].max()),
-        txt("¿En qué departamento ocurrió el sismo de mayor magnitud de todo el catálogo?",
-            df.loc[df["magnitud"].idxmax(), "departamento"]),
+        # solo entre filas con departamento conocido (el max global de 2019
+        # usa el formato antiguo de referencia, sin departamento)
+        txt("Entre los sismos con departamento identificado, ¿en qué departamento ocurrió el de mayor magnitud?",
+            df.dropna(subset=["departamento"])
+              .sort_values("magnitud").iloc[-1]["departamento"]),
 
         # --- combinadas ------------------------------------------------------
         num("De los sismos con magnitud mayor o igual a 6, ¿cuál es su profundidad promedio en km? Responde con 1 decimal.",

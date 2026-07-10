@@ -167,8 +167,8 @@
   },
   {
     "tipo": "texto",
-    "pregunta": "¿En qué departamento ocurrió el sismo de mayor magnitud de todo el catálogo?",
-    "esperado": "nan",
+    "pregunta": "Entre los sismos con departamento identificado, ¿en qué departamento ocurrió el de mayor magnitud?",
+    "esperado": "Loreto",
     "id": 25
   },
   {
