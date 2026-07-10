@@ -1,0 +1,4 @@
+configuracion,n_preguntas,tasa_exito_%,pasos_prom,llamadas_prom,errores_herramienta,errores_api,tiempo_prom_s
+con-herramientas,8,100.0,2.38,1.38,3,0,7.46
+llm-con-resumen,8,50.0,1.0,0.0,0,0,3.71
+llm-sin-resumen,8,0.0,1.0,0.0,0,0,1.06

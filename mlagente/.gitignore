@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+venv/
+web/static/charts/*.png
+eval/resultados/*.json
+eval/resultados/*.log
+eval/resultados/*.err

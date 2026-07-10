@@ -1,0 +1,212 @@
+[
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuántos sismos hay registrados en total en el dataset?",
+    "esperado": 8190.0,
+    "tolerancia": 0.0,
+    "id": 1
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuál es la magnitud máxima registrada en todo el catálogo?",
+    "esperado": 8.2,
+    "tolerancia": 0.0,
+    "id": 2
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuál es la magnitud mínima registrada?",
+    "esperado": 2.9,
+    "tolerancia": 0.0,
+    "id": 3
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuál es la magnitud promedio de todos los sismos? Responde con 2 decimales.",
+    "esperado": 4.1246,
+    "tolerancia": 0.05,
+    "id": 4
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuál es la profundidad máxima registrada en kilómetros?",
+    "esperado": 684.0,
+    "tolerancia": 0.0,
+    "id": 5
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuál es la profundidad promedio en kilómetros de todos los sismos? Responde con 1 decimal.",
+    "esperado": 54.2504,
+    "tolerancia": 0.5,
+    "id": 6
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuántos sismos tienen magnitud mayor o igual a 7.0?",
+    "esperado": 12.0,
+    "tolerancia": 0.0,
+    "id": 7
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuántos sismos de tipo superficial hay?",
+    "esperado": 5877.0,
+    "tolerancia": 0.0,
+    "id": 8
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuántos sismos de tipo profundo (más de 300 km) hay?",
+    "esperado": 20.0,
+    "tolerancia": 0.0,
+    "id": 9
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuántos departamentos distintos aparecen en el dataset?",
+    "esperado": 25.0,
+    "tolerancia": 0.0,
+    "id": 10
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuántos sismos hubo en el año 2025?",
+    "esperado": 840.0,
+    "tolerancia": 0.0,
+    "id": 11
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuántos sismos hubo en el año 2020?",
+    "esperado": 809.0,
+    "tolerancia": 0.0,
+    "id": 12
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuántos sismos hubo entre 2020 y 2022, inclusive?",
+    "esperado": 2450.0,
+    "tolerancia": 0.0,
+    "id": 13
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "Sin contar el año actual (aún incompleto), ¿en qué año se reportaron más sismos?",
+    "esperado": 2025.0,
+    "tolerancia": 0.0,
+    "id": 14
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "Sin contar el año actual, ¿en qué año se reportaron menos sismos?",
+    "esperado": 2013.0,
+    "tolerancia": 0.0,
+    "id": 15
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuál fue la magnitud máxima en el año 2025?",
+    "esperado": 6.1,
+    "tolerancia": 0.0,
+    "id": 16
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿A qué hora del día (0-23) se han reportado más sismos?",
+    "esperado": 23.0,
+    "tolerancia": 0.0,
+    "id": 17
+  },
+  {
+    "tipo": "texto",
+    "pregunta": "¿Qué departamento tiene la mayor cantidad de sismos reportados?",
+    "esperado": "Arequipa",
+    "id": 18
+  },
+  {
+    "tipo": "texto",
+    "pregunta": "¿Cuál es el segundo departamento con más sismos reportados?",
+    "esperado": "Lima",
+    "id": 19
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuántos sismos se han reportado en el departamento de Arequipa?",
+    "esperado": 1515.0,
+    "tolerancia": 0.0,
+    "id": 20
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuántos sismos se han reportado en el departamento de Lima?",
+    "esperado": 739.0,
+    "tolerancia": 0.0,
+    "id": 21
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuál es la profundidad promedio de los sismos en Tacna? Responde con 1 decimal.",
+    "esperado": 80.4434,
+    "tolerancia": 1.0,
+    "id": 22
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuál es la magnitud promedio de los sismos en Ica? Responde con 2 decimales.",
+    "esperado": 4.3175,
+    "tolerancia": 0.05,
+    "id": 23
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuál fue la magnitud máxima en Arequipa durante 2025?",
+    "esperado": 5.8,
+    "tolerancia": 0.0,
+    "id": 24
+  },
+  {
+    "tipo": "texto",
+    "pregunta": "¿En qué departamento ocurrió el sismo de mayor magnitud de todo el catálogo?",
+    "esperado": "nan",
+    "id": 25
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "De los sismos con magnitud mayor o igual a 6, ¿cuál es su profundidad promedio en km? Responde con 1 decimal.",
+    "esperado": 162.4179,
+    "tolerancia": 1.0,
+    "id": 26
+  },
+  {
+    "tipo": "numero",
+    "pregunta": "¿Cuántos sismos superficiales hubo en Lima?",
+    "esperado": 580.0,
+    "tolerancia": 0.0,
+    "id": 27
+  },
+  {
+    "tipo": "grafico",
+    "pregunta": "Muéstrame un gráfico de barras con la cantidad de sismos por año.",
+    "esperado": null,
+    "id": 28
+  },
+  {
+    "tipo": "grafico",
+    "pregunta": "Genera un histograma de las magnitudes de los sismos.",
+    "esperado": null,
+    "id": 29
+  },
+  {
+    "tipo": "grafico",
+    "pregunta": "Grafica los 10 departamentos con más sismos reportados.",
+    "esperado": null,
+    "id": 30
+  },
+  {
+    "tipo": "grafico",
+    "pregunta": "Muéstrame un gráfico de dispersión entre profundidad y magnitud.",
+    "esperado": null,
+    "id": 31
+  }
+]

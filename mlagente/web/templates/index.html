@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SismoAgente · Agente analista de sismos del Perú (IGP + Gemini)</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <div class="titulo">
+      <h1>🌎 SismoAgente</h1>
+      <p>Agente LLM con herramientas sobre el catálogo de sismos reportados del
+        <strong>IGP</strong> · {{ n_sismos }} sismos · {{ rango[0] }} → {{ rango[1] }}</p>
+    </div>
+    <div class="controles">
+      <label for="modelo">Modelo</label>
+      <select id="modelo">
+        {% for m in modelos %}
+        <option value="{{ m }}" {% if m == modelo_defecto %}selected{% endif %}>{{ m }}</option>
+        {% endfor %}
+      </select>
+      <button id="btn-reset" title="Nueva conversación">🗑 Nueva conversación</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="chat">
+      <div id="mensajes">
+        <div class="msg agente">
+          <div class="burbuja">
+            ¡Hola! Soy un agente que analiza los sismos reportados por el IGP
+            (2012–presente). Pregúntame, por ejemplo:
+            <ul>
+              <li>¿Cuál fue el sismo de mayor magnitud en 2024 y dónde ocurrió?</li>
+              <li>¿Qué departamento tiene más sismos reportados?</li>
+              <li>Muéstrame un gráfico de sismos por año</li>
+              <li>¿Cuál es la profundidad promedio de los sismos en Tacna?</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <form id="formulario">
+        <input id="entrada" type="text" autocomplete="off"
+               placeholder="Escribe tu pregunta sobre los sismos del Perú…">
+        <button type="submit" id="btn-enviar">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

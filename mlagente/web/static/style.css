@@ -1,0 +1,138 @@
+/* ==========================================================================
+   SismoAgente - estilos del chat
+   ========================================================================== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --fondo: #0f172a;
+  --panel: #1e293b;
+  --borde: #334155;
+  --texto: #e2e8f0;
+  --tenue: #94a3b8;
+  --acento: #38bdf8;
+  --usuario: #0369a1;
+  --agente: #1e293b;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- cabecera ---------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.4rem;
+  background: var(--panel);
+  border-bottom: 1px solid var(--borde);
+  flex-wrap: wrap;
+}
+header h1 { font-size: 1.25rem; }
+header p { font-size: 0.8rem; color: var(--tenue); }
+.controles { display: flex; align-items: center; gap: 0.5rem; }
+.controles label { font-size: 0.8rem; color: var(--tenue); }
+select, button {
+  background: var(--fondo);
+  color: var(--texto);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+select:hover, button:hover { border-color: var(--acento); }
+
+/* ---------- chat ---------- */
+main { flex: 1; overflow: hidden; display: flex; }
+#chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem;
+}
+#mensajes { flex: 1; overflow-y: auto; padding-bottom: 1rem; }
+
+.msg { display: flex; margin: 0.6rem 0; }
+.msg.usuario { justify-content: flex-end; }
+.burbuja {
+  max-width: 80%;
+  padding: 0.7rem 1rem;
+  border-radius: 14px;
+  line-height: 1.45;
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.msg.usuario .burbuja { background: var(--usuario); border-bottom-right-radius: 4px; }
+.msg.agente .burbuja {
+  background: var(--agente);
+  border: 1px solid var(--borde);
+  border-bottom-left-radius: 4px;
+}
+.burbuja ul { margin: 0.4rem 0 0 1.2rem; }
+.burbuja img.grafico {
+  display: block;
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 0.6rem;
+  background: white;
+}
+
+/* ---------- traza de herramientas ---------- */
+details.traza {
+  margin-top: 0.55rem;
+  font-size: 0.78rem;
+  color: var(--tenue);
+  border-top: 1px dashed var(--borde);
+  padding-top: 0.45rem;
+}
+details.traza summary { cursor: pointer; user-select: none; }
+details.traza code {
+  display: block;
+  background: #0b1220;
+  border-radius: 6px;
+  padding: 0.3rem 0.5rem;
+  margin: 0.25rem 0;
+  overflow-x: auto;
+  font-size: 0.74rem;
+  color: #7dd3fc;
+}
+
+/* ---------- indicador de escritura ---------- */
+.escribiendo .burbuja::after {
+  content: "●●●";
+  letter-spacing: 3px;
+  animation: parpadeo 1.2s infinite;
+  color: var(--tenue);
+}
+@keyframes parpadeo { 50% { opacity: 0.25; } }
+
+/* ---------- formulario ---------- */
+#formulario {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--borde);
+}
+#entrada {
+  flex: 1;
+  background: var(--panel);
+  color: var(--texto);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  font-size: 0.95rem;
+}
+#entrada:focus { outline: none; border-color: var(--acento); }
+#btn-enviar { background: var(--acento); color: #082f49; font-weight: 600; border: none; }
+#btn-enviar:disabled { opacity: 0.5; cursor: wait; }
